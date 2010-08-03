@@ -16,7 +16,7 @@
 	CGRect newBounds = CGRectIntegral(CGRectMake(bounds.origin.x * self.scale, bounds.origin.y * self.scale, bounds.size.width * self.scale, bounds.size.height * self.scale));
 	CGImageRef croppedImageRef = CGImageCreateWithImageInRect([self CGImage], newBounds);
 	UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef scale:0.0 orientation:self.imageOrientation];
-	
+	CFRelease(croppedImageRef);
 	return croppedImage;
 }
 
